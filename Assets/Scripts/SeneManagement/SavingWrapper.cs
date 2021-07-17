@@ -1,0 +1,41 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using RPG.Saving;
+using UnityEngine;
+
+namespace RPG.SceneManagement {
+    public class SavingWrapper : MonoBehaviour {
+        private const string defaultSaveFile = "save";
+        [SerializeField]
+        private float fadeInTime = 0.2f;
+
+        private IEnumerator Start() {
+            var fader = FindObjectOfType<Fader>();
+            fader.FadeOutImediate();
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+            yield return fader.FadeIn(fadeInTime);
+        }
+
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.L)) {
+                Load();
+            }
+
+            if (Input.GetKeyDown(KeyCode.S)) {
+                Save();
+            }
+        }
+
+        public void Save() {
+            GetComponent<SavingSystem>().Save(defaultSaveFile);
+        }
+
+        public void Load() {
+            //call to saving system
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
+        }
+    }
+}
+
+
