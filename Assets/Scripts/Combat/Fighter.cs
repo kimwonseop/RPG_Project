@@ -15,7 +15,7 @@ namespace RPG.Combat {
         private Transform leftHandTransform = null;
         [SerializeField]
         private Weapon defaultWeapon = null;
- 
+
         private float timeSinceLastAttack = Mathf.Infinity;
         private Health target;
         private Weapon currentWeapon = null;
@@ -70,7 +70,7 @@ namespace RPG.Combat {
         }
 
         public bool CanAttack(GameObject combatTarget) {
-            if(combatTarget == null) {
+            if (combatTarget == null) {
                 return false;
             }
 
@@ -96,11 +96,21 @@ namespace RPG.Combat {
 
         //Animation Event
         public void Hit() {
-            if(target == null) {
+            if (target == null) {
                 return;
             }
 
-            target.TakeDamage(currentWeapon.GetDamage());
+            if (currentWeapon.HasProjectile()) {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
+
+        }
+
+        private void Shoot() {
+            Hit();
         }
     }
 }
