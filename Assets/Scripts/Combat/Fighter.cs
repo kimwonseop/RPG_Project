@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.Combat {
-    public class Fighter : MonoBehaviour, IAction {
+    public class Fighter : MonoBehaviour, IAction, ISaveable {
         [SerializeField]
         private float timeBetweenAttacks = 1f;
         [SerializeField]
@@ -21,7 +22,9 @@ namespace RPG.Combat {
         private Weapon currentWeapon = null;
 
         private void Start() {
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null) {
+                EquipWeapon(defaultWeapon);
+            }
         }
 
         private void Update() {
@@ -111,6 +114,16 @@ namespace RPG.Combat {
 
         private void Shoot() {
             Hit();
+        }
+
+        public object CaptureState() {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state) {
+            string weaponName = (string)state;
+            var weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }
