@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: fc821da1c20e34629950c7a01ef8592f, type: 2}
+    - target: {fileID: 1948443627029707054, guid: ff4d24d2f403f4ea8b0328f906e97ff8, type: 3}
+      propertyPath: characterClass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2853474943009659347, guid: ff4d24d2f403f4ea8b0328f906e97ff8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
