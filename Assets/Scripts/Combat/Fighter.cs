@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
 using RPG.Saving;
 using UnityEngine;
+using RPG.Resources;
 
 namespace RPG.Combat {
     public class Fighter : MonoBehaviour, IAction, ISaveable {
@@ -122,7 +120,7 @@ namespace RPG.Combat {
 
         public void RestoreState(object state) {
             string weaponName = (string)state;
-            var weapon = Resources.Load<Weapon>(weaponName);
+            var weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
         }
     }

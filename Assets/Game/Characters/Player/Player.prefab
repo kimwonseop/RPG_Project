@@ -212,6 +212,18 @@ PrefabInstance:
       propertyPath: rightHandTransform
       value: 
       objectReference: {fileID: 1447500460056114457}
+    - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: level
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: startingLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
 --- !u!1 &3696638318744498416 stripped
