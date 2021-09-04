@@ -20,11 +20,22 @@ namespace RPG.Resources {
             return isDead;
         }
 
-        public void TakeDamage(float damage) {
+        public void TakeDamage(GameObject instigator, float damage) {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             if (healthPoints == 0) {
                 Die();
+                AwardExperience(instigator);
             }
+        }
+
+        private void AwardExperience(GameObject instigator) {
+            var experience = instigator.GetComponent<Experience>();
+
+            if (experience == null) {
+                return;
+            }
+
+            experience.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
         }
 
         public float GetPercentage() {

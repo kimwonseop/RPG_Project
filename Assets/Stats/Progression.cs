@@ -10,16 +10,22 @@ namespace RPG.Stats {
         public float GetHealth(CharacterClass characterClass, int level) {
             foreach (var progressionClass in characterClasses) {
                 if(progressionClass.characterClass == characterClass) {
-                    return progressionClass.health[level - 1];
+                    //return progressionClass.health[level - 1];
                 }
             }
             return 30;
         }
 
         [System.Serializable]
-        class ProgressionCharacterClass {
+        private class ProgressionCharacterClass {
             public CharacterClass characterClass;
-            public float[] health;
+            public ProgressionStat[] stats;
+        }
+
+        [System.Serializable]
+        private class ProgressionStat {
+            public Stat stat;
+            public float[] levels;
         }
     }
 }

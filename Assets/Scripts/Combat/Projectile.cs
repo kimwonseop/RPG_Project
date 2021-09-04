@@ -17,6 +17,7 @@ namespace RPG.Combat {
         private float lifeAfterImpact = 2;
 
         private Health target = null;
+        private GameObject instigator = null;
         private float damage = 0f;
 
         private void Start() {
@@ -35,9 +36,10 @@ namespace RPG.Combat {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage) {
+        public void SetTarget(Health target, GameObject instigator, float damage) {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
 
             Destroy(gameObject, maxLifeTime);
         }
@@ -61,7 +63,7 @@ namespace RPG.Combat {
                 return;
             }
 
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
             speed = 0;
 
             if (hitEffect != null) {
