@@ -10,7 +10,7 @@ namespace RPG.Stats {
         }
 
         private void Update() {
-            GetComponent<Text>().text = string.Format("{0:0}", baseStats.GetLevel());
+            GetComponent<Text>().text = string.Format("{0:0}", baseStats.CalculateLevel());
         }
     }
 }

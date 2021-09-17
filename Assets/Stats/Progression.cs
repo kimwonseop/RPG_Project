@@ -45,6 +45,10 @@ namespace RPG.Stats {
 
                 lookupTable[progressionClass.characterClass] = statLookupTable;
             }
+
+            foreach(var s in lookupTable[CharacterClass.Player][Stat.Damage]) {
+             Debug.Log($"damage : {s}");
+            }
         }
 
         [System.Serializable]

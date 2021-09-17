@@ -3,6 +3,7 @@ using RPG.Movement;
 using RPG.Saving;
 using UnityEngine;
 using RPG.Resources;
+using RPG.Stats;
 
 namespace RPG.Combat {
     public class Fighter : MonoBehaviour, IAction, ISaveable {
@@ -101,15 +102,19 @@ namespace RPG.Combat {
 
         //Animation Event
         public void Hit() {
-            if (target == null) {
+            if (target == null) {;
                 return;
             }
 
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+
+            Debug.Log(damage);
+
             if (currentWeapon.HasProjectile()) {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else {
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 

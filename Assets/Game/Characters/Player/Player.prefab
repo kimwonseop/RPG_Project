@@ -30,18 +30,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.89, z: 0}
---- !u!114 &4229618221895172420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3696638318744498416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9ccddd3bed14a9da5612c02658f711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &464147452878385338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +43,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePoints: 0
+--- !u!114 &4229618221895172420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696638318744498416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9ccddd3bed14a9da5612c02658f711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1447500460056181917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,13 +230,21 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: fc269f0528ace40e1b4281eedbba66e8, type: 2}
+    - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: startingLevel
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7159652036392053940, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 4150988285878519776, guid: 410e55923042640628835f699d5fa065, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
 --- !u!1 &3696638318744498416 stripped
