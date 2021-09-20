@@ -15,7 +15,7 @@ namespace RPG.Stats {
 
             float[] levels = lookupTable[characterClass][stat];
 
-            if(levels.Length < level) {
+            if (levels.Length < level) {
                 return 0;
             }
 
@@ -44,10 +44,6 @@ namespace RPG.Stats {
                 }
 
                 lookupTable[progressionClass.characterClass] = statLookupTable;
-            }
-
-            foreach(var s in lookupTable[CharacterClass.Player][Stat.Damage]) {
-             Debug.Log($"damage : {s}");
             }
         }
 
