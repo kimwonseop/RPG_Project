@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Utils;
 using UnityEngine;
 
 namespace RPG.Stats {
@@ -18,15 +19,16 @@ namespace RPG.Stats {
         private bool shouldUseModifiers = false;
 
         public event Action onLevelUp;
-        private int currentLevel = 0;
+        private LazyValue<int> currentLevel;
         private Experience experience;
 
         private void Awake() {
             experience = GetComponent<Experience>();
+            currentLevel = new LazyValue<int>(CalculateLevel);
         }
 
         private void Start() {
-            currentLevel = CalculateLevel();
+            currentLevel.ForceInit();
         }
 
         private void OnEnable() {
@@ -43,8 +45,8 @@ namespace RPG.Stats {
 
         public void UpdateLevel() {
             int newLevel = CalculateLevel();
-            if (newLevel > currentLevel) {
-                currentLevel = newLevel;
+            if (newLevel > currentLevel.value) {
+                currentLevel.value = newLevel;
                 LevelUpEffect();
                 onLevelUp();
             }
@@ -63,11 +65,7 @@ namespace RPG.Stats {
         }
 
         public int GetLevel() {
-            if (currentLevel < 1) {
-                currentLevel = CalculateLevel();
-            }
-
-            return currentLevel;
+            return currentLevel.value;
         }
 
         private float GetAdditiveModifier(Stat stat) {
