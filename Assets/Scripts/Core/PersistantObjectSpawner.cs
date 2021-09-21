@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Core {
-    public class PersistantObject : MonoBehaviour {
+    public class PersistantObjectSpawner : MonoBehaviour {
         [SerializeField]
         private GameObject persistantObjectPrefab;
         private static bool hasSpawned = false;

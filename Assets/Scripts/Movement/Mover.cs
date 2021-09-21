@@ -12,9 +12,13 @@ namespace RPG.Movement {
         private NavMeshAgent navMeshAgent;
         private Health health;
 
-        public void Start() {
+        private void Awake() {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
+        }
+
+        public void Start() {
+
         }
 
         public void Update() {
@@ -23,7 +27,7 @@ namespace RPG.Movement {
             UpdateAnimator();
         }
 
-        public void StartMoveAction(Vector3 destination, float speedFraction) { 
+        public void StartMoveAction(Vector3 destination, float speedFraction) {
             GetComponent<ActionScheduler>().StartAction(this);
             MoveTo(destination, speedFraction);
         }
@@ -60,10 +64,10 @@ namespace RPG.Movement {
 
         public void RestoreState(object state) {
             var data = (MoverSaveData)state;
-            GetComponent<NavMeshAgent>().enabled = false;
+            navMeshAgent.enabled = false;
             transform.position = data.position.ToVector();
             transform.eulerAngles = data.rotation.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            navMeshAgent.enabled = true;
         }
     }
 }

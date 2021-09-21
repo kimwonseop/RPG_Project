@@ -11,13 +11,13 @@ namespace RPG.SceneManagement {
         private float fadeInTime = 0.2f;
 
         public void Awake() {
-            //StartCoroutine(LoadLastScene());
+            StartCoroutine(LoadLastScene());
         }
 
-        private IEnumerator Start() {
+        private IEnumerator LoadLastScene() {
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
             var fader = FindObjectOfType<Fader>();
             fader.FadeOutImediate();
-            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
             yield return fader.FadeIn(fadeInTime);
         }
 
