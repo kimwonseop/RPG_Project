@@ -3,12 +3,13 @@ using RPG.Movement;
 using RPG.Combat;
 using RPG.Resources;
 using System;
+using UnityEngine.EventSystems;
 
 namespace RPG.Control {
     public class PlayerController : MonoBehaviour {
         private Health health;
 
-        private enum CursorType { None, Movement, Combat }
+        private enum CursorType { None, Movement, Combat, UI }
         [Serializable]
         private struct CursorMapping {
             public CursorType type;
@@ -24,7 +25,12 @@ namespace RPG.Control {
         }
 
         private void Update() {
+            if (InteractWithUI()) {
+                return;
+            }
+
             if (health.IsDead()) {
+                SetCursor(CursorType.None);
                 return;
             }
 
@@ -37,6 +43,15 @@ namespace RPG.Control {
             }
 
             SetCursor(CursorType.None);
+        }
+
+        private bool InteractWithUI() {
+            if (EventSystem.current.IsPointerOverGameObject()) {
+                SetCursor(CursorType.UI);
+                return true;
+            }
+
+            return false;
         }
 
         private bool InteractWithCombat() {
@@ -87,8 +102,8 @@ namespace RPG.Control {
         }
 
         private CursorMapping GetCursorMapping(CursorType type) {
-            foreach(var mapping in cursorMappings) {
-                if(mapping.type == type) {
+            foreach (var mapping in cursorMappings) {
+                if (mapping.type == type) {
                     return mapping;
                 }
             }
