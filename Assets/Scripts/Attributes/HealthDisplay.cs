@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-namespace RPG.Resources {
+namespace RPG.Attributes {
     public class HealthDisplay : MonoBehaviour {
         private Health health;
         private void Awake() {
