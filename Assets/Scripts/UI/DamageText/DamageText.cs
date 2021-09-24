@@ -1,17 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RPG.UI.DamageText {
     public class DamageText : MonoBehaviour {
-        // Start is called before the first frame update
-        void Start() {
+        [SerializeField]
+        private Text damageText = null;
 
+        public void DestroyText() {
+            Destroy(gameObject);
         }
 
-        // Update is called once per frame
-        void Update() {
-
+        public void SetValue(float amount) {
+            damageText.text = String.Format("{0:0}", amount);
         }
     }
 }
