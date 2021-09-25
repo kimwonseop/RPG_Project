@@ -14,7 +14,6 @@ namespace RPG.Saving {
         private int dd = 5;
         private Vector2 vector = new Vector2();
         
-
         public string GetUniqueIdentifier() {
             return uniqueIdentifier;
         }

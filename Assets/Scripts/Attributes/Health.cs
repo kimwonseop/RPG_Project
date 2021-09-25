@@ -19,7 +19,6 @@ namespace RPG.Attributes {
         public class TakeDamageEvent : UnityEvent<float> {
         }
 
-        [SerializeField]
         private LazyValue<float> healthPoints;
         private bool isDead = false;
 
@@ -103,7 +102,7 @@ namespace RPG.Attributes {
         }
 
         public object CaptureState() {
-            return healthPoints;
+            return healthPoints.value;
         }
 
         public void RestoreState(object state) {
