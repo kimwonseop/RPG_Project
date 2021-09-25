@@ -157,16 +157,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6969442181781509260}
+    - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7212920396868954464}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -176,8 +184,16 @@ PrefabInstance:
       value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RPG.UI.DamageText.DamageTextSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
@@ -187,9 +203,13 @@ PrefabInstance:
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 921187074870548447, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4052863369678314986, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4110602045397300610, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
       propertyPath: m_RootOrder
@@ -313,6 +333,11 @@ GameObject:
 --- !u!4 &6748446422218844585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4110602045397300610, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
+  m_PrefabInstance: {fileID: 7254321036428729387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7212920396868954464 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 51217925481264459, guid: eccd6b3c5c1b64fd3b665045b92742cb, type: 3}
   m_PrefabInstance: {fileID: 7254321036428729387}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6969442181781509260 stripped
