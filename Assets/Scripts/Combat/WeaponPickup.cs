@@ -7,7 +7,7 @@ using UnityEngine;
 namespace RPG.Combat {
     public class WeaponPickup : MonoBehaviour, IRaycastable {
         [SerializeField]
-        private Weapon weapon = null;
+        private WeaponConfig weapon = null;
         [SerializeField]
         private float respawnTime = 5;
 
