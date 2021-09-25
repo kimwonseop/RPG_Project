@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 using UnityEngine.AI;
+using RPG.Control;
 
 namespace RPG.SceneManagement {
     public class Portal : MonoBehaviour {
@@ -37,13 +38,17 @@ namespace RPG.SceneManagement {
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            var wrapper = FindObjectOfType<SavingWrapper>();
+            var playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            playerController.enabled = false;
 
             yield return fader.FadeOut(fadeOutTime);
 
-            var wrapper = FindObjectOfType<SavingWrapper>();
             wrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+            var newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            newPlayerController.enabled = false;
 
             wrapper.Load();
 
@@ -55,6 +60,7 @@ namespace RPG.SceneManagement {
             yield return new WaitForSeconds(fadeWaitTime);
             yield return fader.FadeIn(fadeInTime);
 
+            newPlayerController.enabled = true;
             Destroy(gameObject);
         }
 
