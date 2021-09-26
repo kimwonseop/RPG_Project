@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
 using RPG.Control;
 using UnityEngine;
 
@@ -9,16 +10,25 @@ namespace RPG.Combat {
         [SerializeField]
         private WeaponConfig weapon = null;
         [SerializeField]
+        private float healthToRestore = 0;
+        [SerializeField]
         private float respawnTime = 5;
 
         private void OnTriggerEnter(Collider other) {
             if (other.gameObject.tag == "Player") {
-                Pickup(other.GetComponent<Fighter>());
+                Pickup(other.gameObject);
             }
         }
 
-        private void Pickup(Fighter fighter) {
-            fighter.EquipWeapon(weapon);
+        private void Pickup(GameObject subject) {
+            if (weapon != null) {
+                subject.GetComponent<Fighter>().EquipWeapon(weapon);
+            }
+
+            if(healthToRestore > 0) {
+                subject.GetComponent<Health>().Heal(healthToRestore);
+            }
+
             StartCoroutine(HideForSeconds(respawnTime));
         }
 
@@ -38,7 +48,7 @@ namespace RPG.Combat {
 
         public bool HandleRaycast(PlayerController callingController) {
             if (Input.GetMouseButtonDown(0)) {
-                Pickup(callingController.GetComponent<Fighter>());
+                Pickup(callingController.gameObject);
             }
 
             return true;
