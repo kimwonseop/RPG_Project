@@ -91,6 +91,15 @@ namespace RPG.Control {
 
         private void AggrevateNearbyEnemies() {
             var hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach(var hit in hits) {
+                var ai = hit.collider.GetComponent<AIController>();
+
+                if(ai == null) {
+                    continue;
+                }
+
+                ai.Aggrevate();
+            }
         }
 
         private void PatrolBehaviour() {

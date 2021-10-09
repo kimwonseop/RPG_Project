@@ -21,6 +21,8 @@ namespace RPG.Control {
         private CursorMapping[] cursorMappings = null;
         [SerializeField]
         private float maxNavMeshProjectionDistance = 1f;
+        [SerializeField]
+        private float raycastRadius = 1;
 
         private void Awake() {
             health = GetComponent<Health>();
@@ -71,7 +73,7 @@ namespace RPG.Control {
         }
 
         private RaycastHit[] RaycastAllSorted() {
-            var hits = Physics.RaycastAll(GetMouseRay());
+            var hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
             float[] distances = new float[hits.Length];
 
             for (int i = 0; i < hits.Length; i++) {
