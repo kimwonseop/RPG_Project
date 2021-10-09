@@ -18,7 +18,7 @@ namespace RPG.Movement {
         }
 
         public void Start() {
-
+            
         }
 
         public void Update() {
