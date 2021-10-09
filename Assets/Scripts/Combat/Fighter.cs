@@ -48,7 +48,7 @@ namespace RPG.Combat {
                 return;
             }
 
-            if (!GetIsInRange()) {
+            if (!GetIsInRange(target.transform)) {
                 GetComponent<Mover>().MoveTo(target.transform.position, 1f);
             }
             else {
@@ -86,8 +86,8 @@ namespace RPG.Combat {
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        private bool GetIsInRange() {
-            return Vector3.Distance(transform.position, target.transform.position) < currentWeaponConfig.GetRange();
+        private bool GetIsInRange(Transform targetTranform) {
+            return Vector3.Distance(transform.position, targetTranform.position) < currentWeaponConfig.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget) {
@@ -95,7 +95,7 @@ namespace RPG.Combat {
                 return false;
             }
 
-            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position)) {
+            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position) && !GetIsInRange(combatTarget.transform)) {
                 return false;
             }
 
