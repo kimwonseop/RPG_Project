@@ -1,4 +1,6 @@
 ## Unity RPG Example
+### Period
+2021.07 ~ 2021.10
 ### Description
 - Unity를 이용하여 기본적인 RPG 게임 시스템 개발
   - Player Movement, Combat
@@ -16,5 +18,5 @@
     - Terrain
     - Scriptable Object
 - C#
-    
+
 
